@@ -54,11 +54,11 @@ It is your desired path for saving the model as onnx file
    
    For example, it gives us one score:
    
-addModelIN = torch.nn.Sequential(torch.nn.AdaptiveMaxPool3d((6, 6, 6)), torch.nn.Flatten(), torch.nn.Linear(69120,4096), torch.nn.ReLU(), torch.nn.Linear(4096, 512), torch.nn.ReLU(), torch.nn.Linear(512, 64), torch.nn.ReLU(), torch.nn.Linear(64, 1), torch.nn.Sigmoid())
+   addModelIN = torch.nn.Sequential(torch.nn.AdaptiveMaxPool3d((6, 6, 6)), torch.nn.Flatten(), torch.nn.Linear(69120,4096), torch.nn.ReLU(), torch.nn.Linear(4096, 512), torch.nn.ReLU(),    torch.nn.Linear(512, 64), torch.nn.ReLU(), torch.nn.Linear(64, 1), torch.nn.Sigmoid())
 
-It gives us a vector with a size of 4096:
+   It gives us a vector with a size of 4096:
 
-addModelIN = torch.nn.Sequential(torch.nn.AdaptiveMaxPool3d((6, 6, 6)), torch.nn.Flatten(), torch.nn.Linear(69120,4096), torch.nn.Sigmoid())
+   addModelIN = torch.nn.Sequential(torch.nn.AdaptiveMaxPool3d((6, 6, 6)), torch.nn.Flatten(), torch.nn.Linear(69120,4096), torch.nn.Sigmoid())
 
 Then the last step is extracting features of the nnUNet segmentation model for the medical images. This is done by feature_extraction.py. In this step, the extracted features are normalized. You should change these parts in the code.
 
