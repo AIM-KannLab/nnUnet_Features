@@ -1,11 +1,9 @@
-# getNNUnet
+**Goal: Extract the feature of images from the nnUNet architecture**
 
-# System requirements
-
-## Operating System
+# Operating System
 getNNUnet has been tested on Linux (Ubuntu 22.04)! It should work out of the box!
 
-## Hardware requirements
+# Hardware requirements
 We support GPU (recommended) and CPU
 
 # Installation instructions
@@ -17,13 +15,16 @@ Use a recent version of Python! 3.9 or newer is guaranteed to work!
 
 To install nnU-Net, follow the instructions on the following website: https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/installation_instructions.md.
 
-**Goal: Extract the feature of images from the nnUNet architecture**
-
 Try to work with the environment that you ran nnUNet and install these extra libraries:
+
 pip install nnunetv2 
+
 pip install onnx 
+
 pip install torchinfo 
+
 pip install onnx2torch 
+
 pip install onnxruntime 
 
 The first step is saving the model to onnx model. This getNNUnet.py does this in this repo. You should change these parts in the code.
@@ -49,10 +50,13 @@ You have this path from onnxPath in getNNUnet.py
 It is your desired path for saving the model as onnx file
 
 4) Change this line based on the feature vector size you need.
+   
    For example, it gives us one score:
+   
 addModelIN = torch.nn.Sequential(torch.nn.AdaptiveMaxPool3d((6, 6, 6)), torch.nn.Flatten(), torch.nn.Linear(69120,4096), torch.nn.ReLU(), torch.nn.Linear(4096, 512), torch.nn.ReLU(), torch.nn.Linear(512, 64), torch.nn.ReLU(), torch.nn.Linear(64, 1), torch.nn.Sigmoid())
 
 It gives us a vector with a size of 4096:
+
 addModelIN = torch.nn.Sequential(torch.nn.AdaptiveMaxPool3d((6, 6, 6)), torch.nn.Flatten(), torch.nn.Linear(69120,4096), torch.nn.Sigmoid())
 
 Then the last step is extracting features of the nnUNet segmentation model for the medical images. This is done by feature_extraction.py. In this step, the extracted features are normalized. You should change these parts in the code.
