@@ -28,7 +28,6 @@ pip install onnx2torch
 pip install onnxruntime 
 
 # Feature Extraction Steps
-
 The first step is saving the model to onnx model. This getNNUnet.py does this in this repo. You should change these parts in the code.
 
 1) TestInputModelPath:
