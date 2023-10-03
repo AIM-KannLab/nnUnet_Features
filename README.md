@@ -71,7 +71,7 @@ os.environ["CUDA_VISIBLE_DEVICES"]="0"
 3) Path_images
 Give the path of the images you tried to segment, which are all in one folder and in NIFTI formats.
 
-The features are saved in feature_list and then saved as a CSV file with the name features_nnunet.csv, which has shape (number of patients, feature vector size). The features are saved as the order of the images in path_image.
+   The features are saved in feature_list and then saved as a CSV file with the name features_nnunet.csv, which has shape (number of patients, feature vector size). The features are        saved as the order of the images in path_image.
 
 # Notes:
 * Maybe it is needed to install extra libraries like pandas, scipy, nibabel.
